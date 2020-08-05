@@ -36,7 +36,8 @@ public class HomePageTest {
 	HomePage hp;
 	MyDevices md;
 	
-
+//adding comments from eclipse workspase 1 
+	
 	
 
 	@Before
