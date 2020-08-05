@@ -1,0 +1,12 @@
+2020-08-02 22:43:32,270, 0(ms), [com.platform.project.steps.HomePageTest] - running before method
+2020-08-02 22:44:28,358, 56088(ms), [com.platform.project.commons.AppiumDriverManager] - Couldnt initialize the driver
+2020-08-02 22:44:28,428, 56158(ms), [com.platform.project.steps.HomePageTest] - before method done
+2020-08-02 22:44:28,842, 56572(ms), [com.platform.project.steps.HomePageTest] - running before method
+2020-08-02 22:45:26,228, 113958(ms), [com.platform.project.commons.AppiumDriverManager] - Couldnt initialize the driver
+2020-08-02 22:45:26,230, 113960(ms), [com.platform.project.steps.HomePageTest] - before method done
+2020-08-02 22:45:26,237, 113967(ms), [com.platform.project.steps.HomePageTest] - running before method
+2020-08-02 22:47:59,606, 267336(ms), [com.platform.project.commons.AppiumDriverManager] - Couldnt initialize the driver
+2020-08-02 22:47:59,608, 267338(ms), [com.platform.project.steps.HomePageTest] - before method done
+2020-08-02 22:47:59,614, 267344(ms), [com.platform.project.steps.HomePageTest] - running before method
+2020-08-02 22:49:54,676, 382406(ms), [com.platform.project.commons.AppiumDriverManager] - Couldnt initialize the driver
+2020-08-02 22:49:54,680, 382410(ms), [com.platform.project.steps.HomePageTest] - before method done

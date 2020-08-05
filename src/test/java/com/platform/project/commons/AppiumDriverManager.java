@@ -24,15 +24,16 @@ public class AppiumDriverManager {
 	private AppiumDriver<MobileElement> createDriver(){
 		DesiredCapabilities caps=new DesiredCapabilities();
 		caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1");
-		caps.setCapability(MobileCapabilityType.DEVICE_NAME, "JassEmulator");
+		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9.0");
+		caps.setCapability(MobileCapabilityType.DEVICE_NAME, "sidEmulator");
 		caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator1");
-		caps.setCapability(MobileCapabilityType.APP, "C:\\Users\\Sehaj Singh\\Desktop\\MobileApps\\ecommerce.apk");
+		caps.setCapability(MobileCapabilityType.APP, "C:\\Users\\Sehaj Singh\\Downloads\\ApiDemos-debug.apk");
 		//ecommerce app
 		
 		try {
 			URL url=new URL("http://0.0.0.0:4723/wd/hub");
 			driver=new AndroidDriver<>(url,caps);
+			logger.info("new android driver created" );
 			return driver;
 		}
 		catch(MalformedURLException mue) {
@@ -90,6 +91,35 @@ public class AppiumDriverManager {
 		return driver;
 	}
 	
+	public AppiumDriver<MobileElement> setRemoteDriver1() throws MalformedURLException{
+		
+	String kobitonServerUrl = "https://sehaj:f813de71-00c4-418f-b023-9297fd57091c@api.kobiton.com/wd/hub";
+	URL url=new URL("https://sehaj:f813de71-00c4-418f-b023-9297fd57091c@api.kobiton.com/wd/hub");
+
+	DesiredCapabilities capabilities = new DesiredCapabilities();
+	// The generated session will be visible to you only. 
+	capabilities.setCapability("sessionName", "Automation test session");
+	capabilities.setCapability("sessionDescription", "");
+	capabilities.setCapability("deviceOrientation", "portrait");
+	capabilities.setCapability("captureScreenshots", true);
+	// The maximum size of application is 500MB
+	// By default, HTTP requests from testing library are expired
+	// in 2 minutes while the app copying and installation may
+	// take up-to 30 minutes. Therefore, you need to extend the HTTP
+	// request timeout duration in your testing library so that
+	// it doesn't interrupt while the device is being initialized.
+	capabilities.setCapability("app", "kobiton-store:69978");
+
+	capabilities.setCapability("deviceGroup", "KOBITON");
+	// For deviceName, platformVersion Kobiton supports wildcard
+	// character *, with 3 formats: *text, text* and *text*
+	// If there is no *, Kobiton will match the exact text provided
+	capabilities.setCapability("deviceName", "Xperia 10 Plus");
+	capabilities.setCapability("platformVersion", "10");
+	capabilities.setCapability("platformName", "Android");
+	driver=new AndroidDriver<>(url,capabilities);
+	return driver;
+}
 }
 
 

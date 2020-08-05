@@ -7,6 +7,7 @@ package com.platform.project.pageObjects;
 import org.apache.log4j.Logger;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -21,13 +22,19 @@ import io.appium.java_client.MobileElement;
 
 public class HomePage {
 	
-	@FindBy(id=("com.androidsample.generalstore:id/spinnerCountry"))
-	WebElement countryList;
+	@FindBy(how=How.XPATH, using="//android.widget.TextView[@content-desc='OS']")
+	WebElement os;
+	
+	
+	
 	//@FindBy(linkText=("France"))
 	//@FindBy(how=How.LINK_TEXT,using="France")
+	
+	
 	@FindBy(xpath=("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[7]"))
 	WebElement clickFrance;
 	
+//	@FindBy(how=How.LINK_TEXT, using="Australia")
 	@FindBy(id=("com.androidsample.generalstore:id/nameField"))
 	WebElement name;
 
@@ -36,7 +43,9 @@ public class HomePage {
 	
 	@FindBy(id=("com.androidsample.generalstore:id/radioFemale"))
 	WebElement genderFemale;
-
+	
+	@FindBy(xpath=("android.widget.Toast"))
+	WebElement errorMsg;
 	
 
 	private AppiumDriver<MobileElement> driver;
@@ -49,16 +58,29 @@ public class HomePage {
 	}
 	
 	
-	public void clickCountryList() {
-		CommonMethods.clickElement(driver, countryList, 5);
+	public void tapOS() {
+//		TouchActions action = new TouchActions(driver);
+//		action.singleTap(os);
+//		action.perform();		
 		
+		os.click();
 	}
+	
+	
+	
 	
 	public void selectFrance() throws InterruptedException {
 		driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"France\"));"));
 	
 		Thread.sleep(5000);
 		CommonMethods.clickElement(driver, clickFrance,5);
+		
+	}
+	public void selectAustralia() throws InterruptedException {
+		driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Australia\"));")).click();
+	
+		Thread.sleep(5000);
+		//CommonMethods.clickElement(driver, clickFrance,5);
 		
 	}
 	
@@ -72,6 +94,10 @@ public class HomePage {
 	
 	public void submit() {
 		CommonMethods.clickElement(driver, submit, 5);
+	}
+	public String getToastErrorMsg() {
+		return errorMsg.getAttribute("name");
+				
 	}
 
 }
