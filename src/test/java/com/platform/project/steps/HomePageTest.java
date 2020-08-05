@@ -37,8 +37,11 @@ public class HomePageTest {
 	MyDevices md;
 	
 //adding comments from eclipse workspase 1 
-	
-	
+	// making changes on the develop branch
+	// making changes on the develop branch
+	// making changes on the develop branch
+	// making changes on the develop branch
+	// making changes on the develop branch
 
 	@Before
 	public void beforeMethod() throws IOException {
